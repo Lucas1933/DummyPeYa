@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from "expo-font";
+import NavBar from "./components/NavBar.js";
+import OrderInformation from "./components/OrderInformation.js";
+import RestaurantName from "./components/RestaurantName.js";
+import ConfirmOrderButton from "./components/ConfirmOrderButton.js";
+import { StyleSheet, ScrollView } from "react-native";
 
 export default function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    "Cabrion-Bold": require("./assets/fonts/Cabrion-Bold.ttf"),
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <NavBar></NavBar>
+
+      <ScrollView nestedScrollEnabled={true}>
+        <RestaurantName></RestaurantName>
+        <ScrollView nestedScrollEnabled={true} style={{ paddingBottom: 20 }}>
+          <OrderInformation></OrderInformation>
+        </ScrollView>
+        <ConfirmOrderButton></ConfirmOrderButton>
+      </ScrollView>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({});
