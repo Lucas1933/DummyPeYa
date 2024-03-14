@@ -1,5 +1,5 @@
 import { Pressable, View, Text } from "react-native";
-export default function ConfirmOrderButton() {
+export default function ConfirmOrderButton({ confirmPickup }) {
   return (
     <Pressable
       style={{
@@ -10,6 +10,7 @@ export default function ConfirmOrderButton() {
         marginBottom: 20,
         borderRadius: 20,
       }}
+      onPress={confirmPickup}
     >
       <Text
         style={{

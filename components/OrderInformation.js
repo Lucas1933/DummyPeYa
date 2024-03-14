@@ -1,5 +1,6 @@
 import { Image, StyleSheet, View, Text } from "react-native";
 export default function OrderInformation({ orderDetails }) {
+  console.log(orderDetails);
   const { number, hashtag, clientName, items } = orderDetails;
   return (
     <View style={styles.orderContainer}>
@@ -80,13 +81,12 @@ export default function OrderInformation({ orderDetails }) {
           marginLeft: 15,
           borderTopWidth: 1,
           borderBottomWidth: 1,
+          paddingVertical: 10,
           borderColor: "rgba(211, 208, 211, 0.79)",
         }}
       >
-        <Text style={{ marginVertical: 7, marginBottom: 5, fontWeight: "300" }}>
-          Pago
-        </Text>
-        <Text style={{ marginVertical: 10, fontSize: 15 }}>
+        <Text style={{ fontWeight: "300" }}>Pago</Text>
+        <Text style={{ marginTop: 7, marginBottom: 15, fontSize: 16 }}>
           No pagar en el local
         </Text>
       </View>
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 100,
 
-    borderRadius: 50,
+    borderRadius: 30,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {

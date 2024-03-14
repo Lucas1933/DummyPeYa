@@ -1,4 +1,11 @@
-import { StyleSheet, Text, TextInput, View, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  ScrollView,
+} from "react-native";
 import { OrderChangeDataContext } from "context/OrderChangeDataContext";
 import { useContext, useState } from "react";
 import { OrderContext } from "context/OrderContext";
@@ -11,25 +18,32 @@ export default function ChangeOrderDetails() {
   const [orderNumber, setOrderNumber] = useState(orderData.number);
   const [orderHashtag, setOrderHashtag] = useState(orderData.hashtag);
   const [clientName, setClientName] = useState(orderData.clientName);
-  const [items, setItems] = useState([{}]);
+  const [itemQuantity, setItemQuantity] = useState("");
+  const [itemName, setItemName] = useState("");
+  const [itemPrice, setItemPrice] = useState("");
   const [orderIsReady, setOrderIsReady] = useState(false);
 
   const handleChangeOrderDetails = () => {
+    const item = { quantity: itemQuantity, name: itemName, price: itemPrice };
+    const items = orderData.items;
+    items.push(item);
     const orderDetails = {
       restaurantName,
       number: orderNumber,
       hashtag: orderHashtag,
       clientName,
-      items: [{ quantity: 1, name: "pastel de papa", price: 50000 }],
+      items,
     };
     handleChangeOrderData(orderDetails);
   };
+
   return (
-    <View
+    <ScrollView
       style={{
         height: "100%",
       }}
     >
+      {/* restaurant name input */}
       <Text style={styles.inputName}>• Restaurant name</Text>
       <View style={styles.input}>
         <TextInput
@@ -38,6 +52,7 @@ export default function ChangeOrderDetails() {
           autoCapitalize="words"
         />
       </View>
+      {/* order number input */}
       <Text style={styles.inputName}>• Order number</Text>
       <View style={styles.input}>
         <TextInput
@@ -47,6 +62,7 @@ export default function ChangeOrderDetails() {
           keyboardType="numeric"
         />
       </View>
+      {/* order hashtag input */}
       <Text style={styles.inputName}>• Order Hashtag</Text>
       <View style={styles.input}>
         <TextInput
@@ -55,15 +71,30 @@ export default function ChangeOrderDetails() {
           maxLength={7}
         />
       </View>
+      {/* client name input */}
       <Text style={styles.inputName}>• Client name</Text>
       <View style={styles.input}>
         <TextInput onChangeText={setClientName} value={clientName} />
+      </View>
+      {/* items input */}
+      <Text style={styles.inputName}>• Items</Text>
+      <Text>Quantity</Text>
+      <View style={styles.input}>
+        <TextInput onChangeText={setItemQuantity} value={itemQuantity} />
+      </View>
+      <Text>Name</Text>
+      <View style={styles.input}>
+        <TextInput onChangeText={setItemName} value={itemName} />
+      </View>
+      <Text>Price</Text>
+      <View style={styles.input}>
+        <TextInput onChangeText={setItemPrice} value={itemPrice} />
       </View>
       <Button
         title="Change order details"
         onPress={handleChangeOrderDetails}
       ></Button>
-    </View>
+    </ScrollView>
   );
 }
 

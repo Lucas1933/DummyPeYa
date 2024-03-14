@@ -14,7 +14,7 @@ export default function App() {
     number: "202020202",
     hashtag: "(#6628)",
     clientName: "Jhon Doe",
-    items: [{ quantity: 1, name: "pastel de papa", price: 50000 }],
+    items: [],
   });
   return (
     <OrderContext.Provider value={orderData}>
