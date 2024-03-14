@@ -4,14 +4,11 @@ export default function ConfirmOrderButton() {
     <Pressable
       style={{
         backgroundColor: "#ea034d",
-        marginHorizontal: 30,
-        padding: 30,
+        marginHorizontal: 15,
+        paddingHorizontal: 50,
         paddingVertical: 20,
-        marginBottom: 30,
-        borderRadius: 25,
-      }}
-      onPress={() => {
-        console.log("not gonna show");
+        marginBottom: 20,
+        borderRadius: 20,
       }}
     >
       <Text

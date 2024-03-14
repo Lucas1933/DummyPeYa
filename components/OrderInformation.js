@@ -1,15 +1,16 @@
 import { Image, StyleSheet, View, Text } from "react-native";
-export default function OrderInformation() {
+export default function OrderInformation({ orderDetails }) {
+  const { number, hashtag, clientName, items } = orderDetails;
   return (
     <View style={styles.orderContainer}>
       <View style={{ marginHorizontal: 20 }}>
-        <Text style={{ fontWeight: "300" }}>Detalles de la orden</Text>
+        <Text style={{ fontWeight: "300", color: "black" }}>
+          Detalles de la orden
+        </Text>
         <Text style={{ fontWeight: "bold", fontSize: 20, marginVertical: 7 }}>
-          1114200688 (#6628)
+          {number + " " + hashtag}
         </Text>
-        <Text style={{ fontSize: 15, fontWeight: "400" }}>
-          Mariana Tome Fuentes
-        </Text>
+        <Text style={{ fontSize: 15, fontWeight: "400" }}>{clientName}</Text>
 
         <View
           style={{
@@ -50,25 +51,28 @@ export default function OrderInformation() {
         Esconder el elemento del pedi...
       </Text>
 
-      <View
-        style={{
-          marginHorizontal: 15,
-          marginTop: 30,
-          paddingBottom: 20,
-          marginBottom: 15,
-          flexDirection: "row",
-          borderStyle: "solid",
-          borderLeftWidth: 2,
-          borderColor: "rgba(211, 208, 211, 0.79)",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <Text style={{ fontWeight: "bold" }}>1</Text>
-        <Text style={{ fontSize: 15, textAlign: "justify" }}>
-          Pastel de Papas
-        </Text>
-        <Text>8.250,00 $</Text>
-      </View>
+      {items.map((eachItem, index) => (
+        <View
+          style={{
+            marginHorizontal: 15,
+            marginTop: 30,
+            paddingBottom: 20,
+            marginBottom: 15,
+            flexDirection: "row",
+            borderStyle: "solid",
+            borderLeftWidth: 2,
+            borderColor: "rgba(211, 208, 211, 0.79)",
+            justifyContent: "space-evenly",
+          }}
+          key={index}
+        >
+          <Text style={{ fontWeight: "bold" }}>{eachItem.price}</Text>
+          <Text style={{ fontSize: 15, textAlign: "justify" }}>
+            {eachItem.name}
+          </Text>
+          <Text>{eachItem.price}</Text>
+        </View>
+      ))}
 
       <View
         style={{

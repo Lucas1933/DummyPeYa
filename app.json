@@ -28,7 +28,7 @@
       [
         "expo-font",
         {
-          "fonts": ["path/to/file.ttf"]
+          "fonts": [""]
         }
       ]
     ]
