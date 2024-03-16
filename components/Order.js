@@ -16,13 +16,11 @@ export default function Order({ navigation }) {
     isConfirmingLoadingAnimationEnded,
     setIsConfirmingLoadingAnimationEnded,
   ] = useState(false);
-  console.log("showPickup", showPickupConfirmation);
-  console.log("isPickupConfirmed", isPickupConfirmed);
-  console.log("isAnimationEnded", isConfirmingLoadingAnimationEnded);
+
   return (
     <>
       {isConfirmingLoadingAnimationEnded ? (
-        <Map></Map>
+        <Map clientName={orderData.clientName}></Map>
       ) : (
         <>
           <NavBar

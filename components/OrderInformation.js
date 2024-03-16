@@ -1,6 +1,5 @@
 import { Image, StyleSheet, View, Text } from "react-native";
 export default function OrderInformation({ orderDetails }) {
-  console.log(orderDetails);
   const { number, hashtag, clientName, items } = orderDetails;
   return (
     <View style={styles.orderContainer}>
@@ -67,7 +66,7 @@ export default function OrderInformation({ orderDetails }) {
           }}
           key={index}
         >
-          <Text style={{ fontWeight: "bold" }}>{eachItem.price}</Text>
+          <Text style={{ fontWeight: "bold" }}>{eachItem.quantity}</Text>
           <Text style={{ fontSize: 15, textAlign: "justify" }}>
             {eachItem.name}
           </Text>

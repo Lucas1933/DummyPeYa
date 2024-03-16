@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     height: "8%",
     alignItems: "center",
     justifyContent: "space-evenly",
-    marginTop: 20,
+    marginTop: 5,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {

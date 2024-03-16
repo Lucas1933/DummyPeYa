@@ -39,25 +39,32 @@ export default function ConfirmingTask({
         zIndex: 20,
       }}
     >
+      <Text style={{ fontWeight: "bold", color: "white" }}>
+        Confirmando Tareas...
+      </Text>
       <View
         style={{
           /*   top: 0,
           bottom: 0,
           left: 0,
           right: 0, */
-          paddingVertical: 30,
-          paddingHorizontal: 60,
+          padding: 10,
           justifyContent: "center",
           alignItems: "center",
-          borderRadius: 40,
+          borderRadius: 10,
           backgroundColor: "rgba(211, 208, 211, 0.60)",
+          marginTop: 20,
         }}
       >
         <Animated.Image
-          style={{ width: 100, height: 100, transform: [{ rotate: spin }] }}
+          style={{
+            width: 30,
+            height: 30,
+
+            transform: [{ rotate: spin }],
+          }}
           source={require("../assets/icons/arrows.png")}
         ></Animated.Image>
-        <Text style={{ fontWeight: "bold" }}>Confirmando Tareas...</Text>
       </View>
     </View>
   );
