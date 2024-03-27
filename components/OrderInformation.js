@@ -67,10 +67,26 @@ export default function OrderInformation({ orderDetails }) {
           key={index}
         >
           <Text style={{ fontWeight: "bold" }}>{eachItem.quantity}</Text>
-          <Text style={{ fontSize: 15, textAlign: "justify" }}>
-            {eachItem.name}
-          </Text>
-          <Text>{eachItem.price}</Text>
+          <View
+            style={{
+              flexDirection: "row",
+
+              width: 50,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 15,
+                textAlign: "justify",
+
+                flexWrap: "wrap",
+              }}
+            >
+              {eachItem.name}
+            </Text>
+          </View>
+
+          <Text>{eachItem.price + ",00 $"}</Text>
         </View>
       ))}
 

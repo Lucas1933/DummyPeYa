@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 export default function MapFooter({ clientName }) {
   return (
     <View
@@ -9,6 +9,64 @@ export default function MapFooter({ clientName }) {
         justifyContent: "flex-end",
       }}
     >
+      <View
+        style={{
+          height: "30%",
+          width: "100%",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            backgroundColor: "#ea034d",
+            marginHorizontal: 15,
+            paddingHorizontal: 15,
+            paddingVertical: 14,
+            marginBottom: 10,
+            borderRadius: 50,
+          }}
+        >
+          <Image
+            style={{ width: 20, height: 20, marginRight: 8 }}
+            source={require("../assets/icons/turn-right.png")}
+          ></Image>
+          <Text
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              textAlign: "center",
+              fontSize: 17,
+            }}
+          >
+            Navegar
+          </Text>
+        </View>
+        <View
+          style={{
+            borderRadius: 100,
+            backgroundColor: "white",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 10,
+              height: 5,
+            },
+            shadowOpacity: 1,
+            shadowRadius: 0,
+            elevation: 21,
+            marginRight: 20,
+            marginBottom: 10,
+          }}
+        >
+          <Image
+            style={{ height: 30, width: 30, margin: 10 }}
+            source={require("../assets/icons/target.png")}
+          ></Image>
+        </View>
+      </View>
       <View
         style={{
           backgroundColor: "white",
@@ -27,8 +85,8 @@ export default function MapFooter({ clientName }) {
         >
           <View
             style={{
-              width: "12%",
-              height: "25%",
+              width: "11%",
+              height: "28%",
               borderRadius: 50,
               backgroundColor: "grey",
             }}

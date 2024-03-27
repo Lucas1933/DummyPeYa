@@ -58,6 +58,19 @@ export default function Map({ clientName }) {
               marginTop: 40,
             }}
           >
+            <View
+              style={{
+                height: 15,
+                width: 15,
+                borderRadius: 100,
+                borderStyle: "solid",
+                borderColor: "white",
+                borderWidth: 2,
+                backgroundColor: "green",
+                position: "absolute",
+                right: 0,
+              }}
+            ></View>
             <Text
               style={{ textAlign: "center", color: "grey", marginBottom: 3 }}
             >
@@ -106,38 +119,26 @@ export default function Map({ clientName }) {
         {/* BOTTOM ELEMENTS */}
         <View
           style={{
-            backgroundColor: "black",
-            height: "0%",
             width: "100%",
-            justifyContent: "flex-end",
+            flexDirection: "row",
+            justifyContent: "space-around",
           }}
         >
           <View
             style={{
-              flexDirection: "row",
-              backgroundColor: "#ea034d",
-              marginHorizontal: 15,
-              paddingHorizontal: 30,
-              paddingVertical: 18,
-              marginBottom: 10,
-              borderRadius: 50,
+              height: 25,
+              width: 25,
+              borderRadius: 100,
+              borderStyle: "solid",
+              borderColor: "white",
+              borderWidth: 2,
+              backgroundColor: "#4890e5",
             }}
-          >
-            <Image
-              style={{ width: 20, height: 20, marginRight: 8 }}
-              source={require("../assets/icons/turn-right.png")}
-            ></Image>
-            <Text
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                textAlign: "center",
-                fontSize: 16,
-              }}
-            >
-              Navegar
-            </Text>
-          </View>
+          ></View>
+          <Image
+            style={{ height: 60, width: 60 }}
+            source={require("../assets/icons/client.png")}
+          ></Image>
         </View>
         <MapFooter clientName={clientName}></MapFooter>
       </View>
